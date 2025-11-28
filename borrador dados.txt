@@ -1,0 +1,98 @@
+#include <iostream>
+#include "Funciones.h"
+#include "rlutil.h"
+
+using namespace std;
+
+void dibujarCuadrado(int posicionc,int posicionf);
+void dibujarDado(int numero, int posicionc, int posicionf);
+
+int main()
+{
+    rlutil::hidecursor();
+    rlutil::saveDefaultColor();
+
+    for(int i=1; i<=6; i++){
+            dibujarDado(i,i*10,1);   //funcion que dibujara lo s dadso//
+    }
+
+
+    rlutil::anykey();
+    rlutil::resetColor();
+    return 0;
+}
+
+void dibujarDado(int numero, int posicionc, int posicionf){
+dibujarCuadrado(posicionc,posicionf);
+
+    rlutil::setColor(rlutil::BLACK);
+    rlutil::setBackgroundColor(rlutil::WHITE);
+
+    switch(numero){
+        case 1:
+        rlutil::locate(posicionc+3, posicionf+1);
+        cout<<(char) 254;
+        break;
+        case 2:
+            rlutil::locate(posicionc+1,posicionf);
+            cout<<(char)220;
+            rlutil::locate(posicionc+5,posicionf+2);
+            cout<<(char)223;
+            break;
+        case 3 :
+             rlutil::locate(posicionc+3, posicionf+1);
+            cout<<(char) 254;
+            rlutil::locate(posicionc+1,posicionf);
+            cout<<(char)220;
+            rlutil::locate(posicionc+5,posicionf+2);
+            cout<<(char)223;
+            break;
+        case 4 :
+            rlutil::locate(posicionc+1,posicionf);
+            cout<<(char)220;
+            rlutil::locate(posicionc+5,posicionf);
+            cout<<(char)220;
+            rlutil::locate(posicionc+1,posicionf+2);
+            cout<<(char) 223;
+            rlutil::locate(posicionc+5,posicionf+2);
+            cout<< (char)223;
+            break;
+        case 5:
+             rlutil::locate(posicionc+3, posicionf+1);
+            cout<<(char) 254;
+            rlutil::locate(posicionc+1,posicionf);
+            cout<<(char)220;
+            rlutil::locate(posicionc+5,posicionf);
+            cout<<(char)220;
+            rlutil::locate(posicionc+1,posicionf+2);
+            cout<<(char) 223;
+            rlutil::locate(posicionc+5,posicionf+2);
+            cout<< (char)223;
+            break;
+        case 6 :
+              rlutil::locate(posicionc+1,posicionf);
+            cout<<(char)220;
+              rlutil::locate(posicionc+3,posicionf);
+            cout<<(char)220;
+            rlutil::locate(posicionc+5,posicionf);
+            cout<<(char)220;
+            rlutil::locate(posicionc+1,posicionf+2);
+            cout<<(char) 223;
+            rlutil::locate(posicionc+3,posicionf+2);
+            cout<<(char) 223;
+            rlutil::locate(posicionc+5,posicionf+2);
+            cout<< (char)223;
+            break;
+
+    }
+}
+
+void dibujarCuadrado(int posicionc, int posicionf){
+  rlutil::setColor(rlutil::WHITE);
+    for(int c=posicionc;c<= posicionc+6;c++){
+        for (int f=posicionf; f<= posicionf+2;f++){
+            rlutil::locate(c, f);
+        cout<< (char) 219;
+        }
+    }
+}
